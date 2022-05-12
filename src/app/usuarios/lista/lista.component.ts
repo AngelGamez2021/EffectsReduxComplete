@@ -24,12 +24,12 @@ export class ListaComponent implements OnInit {
     //esto es con servicios
     // this.leerUsuario();
 
-    this.leerUsuario();
+    this.leerUsuarios();
     this.store.dispatch(cargarUsuarios())
   }
 
   //leer el store
-  leerUsuario() {
+  leerUsuarios() {
     this.store.select('usuarios').subscribe(({ users, loading, error }) => {
       this.usuarios = users,
       this.loading = loading,

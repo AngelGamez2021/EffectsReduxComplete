@@ -30,29 +30,6 @@ export class UsuariosEffects {
                     // tap(data => console.log('getUsers effects', data))...esto sirve para imprimir aca en el effects
                     map(users => usuariosActions.cargarUsuariosSuccess({ usuarios: users })),
                     catchError(error => of(usuariosActions.cargarUsuariosError({ payload: error })))
-                )
-            )
-        )
-
-
-    );
-
-
+                ))));
 }
 
-
-
-
-
-
-// readUser$ = createEffect(() =>
-// this.actions$.pipe(
-//   ofType(UserActions.readUser),
-//   concatMap(() =>
-//     this.userService.getUsers().pipe(
-//       map(({ dataUsers }) => UserActions.readUserSuccess({ users: dataUsers })),
-//       catchError((error) => of(UserActions.readUserFailure({ error })))
-//     )
-//   )
-// )
-// );

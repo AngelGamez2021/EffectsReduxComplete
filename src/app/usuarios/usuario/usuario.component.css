@@ -1,0 +1,29 @@
+.container{
+    padding: 0;
+    margin: 0;
+    background: #AAAAAA;
+}
+
+
+.card{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 10px;
+
+}
+
+
+ul{
+    margin-right: 32px;
+}
+
+img{
+    
+    margin: 10px;
+    width: 170px;
+    height: 170px;
+}
