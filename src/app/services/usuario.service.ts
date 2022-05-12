@@ -11,8 +11,9 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
 //en el video sale sin el resp: any y por eso te mandará error
+//delay sirve para darle segundos a la carga de los usuarios....
   getUsers() {
-    return this.http.get(`${this.url}/users?per_page=20`)
+    return this.http.get(`${this.url}/users?per_page=20&delay=3`)
       .pipe(
         map((resp: any) => resp['data'])
       );

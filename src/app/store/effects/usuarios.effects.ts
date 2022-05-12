@@ -3,7 +3,7 @@
 
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { concatMap, map, of, tap } from "rxjs";
+import { catchError, concatMap, map, of, tap } from "rxjs";
 import { UsuarioService } from "src/app/services/usuario.service";
 import * as usuariosActions from "../actions/usuarios.actions";
 
@@ -29,7 +29,7 @@ export class UsuariosEffects {
                 .pipe(
                     // tap(data => console.log('getUsers effects', data))...esto sirve para imprimir aca en el effects
                     map(users => usuariosActions.cargarUsuariosSuccess({ usuarios: users })),
-
+                    catchError(error => of(usuariosActions.cargarUsuariosError({ payload: error })))
                 )
             )
         )

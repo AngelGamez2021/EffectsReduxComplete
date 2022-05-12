@@ -1,9 +1,26 @@
-<div class="container">
+<div class="alert alert-info text-center" role="alert" *ngIf="loading">
+    <h4 class="alert-heading"> Cargando... </h4>
+    <p>
+        <i class="fa fa-sync fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0"></p>
+</div>
+
+<div class="alert alert-danger text-center" role="alert" *ngIf="error">
+    <h4 class="alert-heading"> Error... </h4>
+    <pre>
+        {{error | json}}
+    </pre>
+    <p class="mb-0"></p>
+</div>
+
+
+<div class="container" *ngIf="!loading">
     <div class="card" *ngFor="let user of usuarios">
-        <img [src]= user.avatar>
+        <img [src]=user.avatar>
         <div>
             <h6>{{user.first_name }} {{user.last_name}}</h6>
-            <p id="email">{{user.email}}</p>
+            <p id="email">{{user.email}}</p> 
             <p>This is a longer card with supporting text below as a natural.</p>
         </div>
         <span>ID: {{user.id}}</span>
@@ -12,5 +29,3 @@
 <!-- Luego de haber leido la informacion que venia de la API con los servicios
      de haber mapeado el servicio para solo extraer la data, pasamos a la creacion del store
      creando cada uno en carpetas.. effects, actions, reducers -->
-
-     
